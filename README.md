@@ -1077,12 +1077,6 @@ perspective-origin：摄像机的位置
 
 
 
-
-
-
-
-
-
 # JavaScript学习笔记
 
 
@@ -1147,9 +1141,7 @@ Symbol 作为属性名，该属性不会出现在for...in、for...of循环中，
 
 
 
-## 回调函数
 
-将一个函数作为参数传递到另一个函数中执行，传入的函数参数就叫回调函数
 
 
 
@@ -1157,6 +1149,8 @@ Symbol 作为属性名，该属性不会出现在for...in、for...of循环中，
 ## typeof和instanceof的区别
 
 typeof判断数据类型，返回类型
+
+“typeof”可以返回的数据类型有：“number”、“string”、“boolean”、“undefined”、“object”、“function”
 
 instanceof判断该对象是谁的示例，返回true或false,原型链上的都为true
 
@@ -1206,9 +1200,7 @@ console.log(str[0]);// 输出是a
 
 不能改变单个字符的值，只能重新赋值整个字符串。
 
-判断类型：
 
-typeof(str) == 'string'
 
 ## 2、数组
 
@@ -1278,14 +1270,8 @@ points.sort(function(a, b){return a - b});
 ## 2.4数组去重
 
 ```js
-let a = Array.from(new Set(arr));
+let a = Array.from(new Set(arr)
 ```
-
-
-
-
-
-
 
 ## 3、对象
 
@@ -1464,6 +1450,8 @@ t2.do2("烧水2");//
 
 
 ## 回调函数
+
+将一个函数作为参数传递到另一个函数中执行，传入的函数参数就叫回调函数
 
 用setInterval来一直异步运行
 
@@ -2430,17 +2418,7 @@ console.log(store.state.count) // -> 1
 <input v-model="something">`其实是`<input v-bind:value="something" v-on:input="something = $event.target.value">
 ```
 
-## webpack
 
-js的模块打包器
-
-
-
-export default里面：
-
-name属性，是接口名。给其他组件调用的。
-
-其他组件要用到该组件时，import   name    ../文件名。。component里面也要声明
 
 
 
@@ -2745,9 +2723,7 @@ $emit方法，子组件写emit方法，（‘事件名’，‘数据’），�
 
 **v-if = display:none + 干掉其Dom节点**。
 
-## 5.如何让CSS只在当前组件中起作用？
 
-答：在组件中的style前面加上scoped
 
 ## 6.<keep-alive></keep-alive>的作用是什么?
 
@@ -2872,7 +2848,7 @@ vue3中v-if比v-for优先级高，所以用v-for的内容当v-if的条件的时�
 
 最直观的区别就是在url中 hash 带了一个很丑的 # 而history是没有#的
 
-对于vue这类渐进式前端开发框架，为了构建 SPA（单页面应用），需要引入前端路由系统，这也就是 Vue-Router 存在的意义。前端路由的核心，就在于 —— 改变视图的同时不会向后端发出请求。
+对于vue这类渐进式前端开发框架，为了构建 SPA（单页面应用），需要引入前端路由系统，这也就是 Vue-Router 存在的意义。前端路由的核心，就在于 —— **改变视图的同时不会向后端发出请求。**
 
 为了达到这一目的，浏览器当前提供了以下两种支持：
 
@@ -2962,11 +2938,7 @@ TCP报文首部20字节，UDP8字节。
 
 ### 为什么不是四次：
 
-三次结束后已经可以确定客户端和服务器可以相互发送消息，如果四次会造成浪费。
-
-
-
-
+三次结束后已经可以确定客户端和服务器可以相互发送消息，如果四次会造成浪费
 
 tcp发出去的请求要得到回应，不然会超时重传。
 
@@ -2988,20 +2960,6 @@ tcp发出去的请求要得到回应，不然会超时重传。
 
 ***\*为什么等待时间是2MSL?\****
 **客户端发送的ACK segment存活期1MSL,服务端重发FIN segment存活期1MSL，加一起2MSL。2MSL是一个临界值，利用尽量大的等待时间来确保TCP连接断开的可靠性。** 
-
-
-
-## 4、webSocket的实现和应用
-
-
-
-websocket是基于http实现的。
-
-是html5中的协议。
-
-持久连续连接。
-
-
 
 
 
@@ -3047,11 +3005,6 @@ GET：请求从服务器获取特定资源。
  5️⃣PATCH：更新服务器上的资源(客户端提供更改的属性，可以看做作是部分更新)，使用的比较少。
 
 
-
-作者：日常更新
-链接：https://www.jianshu.com/p/67c307a12a92
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ## 8、Cookie、sessionStorage、localStorage的区别
 
@@ -4373,16 +4326,6 @@ module.exports = {
 
 
 
-
-
-
-
-
-
-
-
-
-
 ### 5、document.domain+iframe
 
 适合主域名相同，子域名不同的。
@@ -4402,29 +4345,6 @@ module.exports = {
 添加message监听器，接收数据。
 
 
-
-## 8、webpack打包
-
-webpack是一个前端资源加载/打包工具。
-
-Webpack 本身只能处理 JavaScript 模块，如果要处理其他类型的文件，就需要使用 loader 进行转换。
-
-webpack 命令执行后，会默认载入当前目录的 webpack.config.js 文件。
-
-```javascript
-module.exports = {
-    entry: "./runoob1.js",//输入要打包的文件
-    output: {
-        path: __dirname,
-        filename: "bundle.js"   //打包后输出的静态文件
-    },
-    module: {
-        loaders: [
-            { test: /\.css$/, loader: "style-loader!css-loader" }
-        ]
-    }
-};
-```
 
 
 
@@ -5252,25 +5172,7 @@ git show hashcommit
 
 可替换元素的性质同设置了display:inline-block的元素一致
 
-## 职业规划
 
-学习技术，得到成长。从初级开发到高级开发，熟悉业务场景，走技术路线。
-
-看具体情况，是否继续走技术路线还是走管理路线。
-
-现在互联网内卷严重，所以也希望工作是稳定的，可以在一家公司一直做下去。
-
-
-
-## tv端适配
-
-1、媒体查询
-
-2、百分比
-
-3、rem
-
-rem只适配固定比例的屏幕，一般是16：9，，适配宽度，高度不用管
 
 
 
@@ -5438,6 +5340,30 @@ bfs：
 如果有，就是已经计算过，不必再次计算，直接取就行。
 
 递归时候用。
+
+
+
+## 滑动窗口算法
+
+左右双指针，相加，大于，右就移动，小于左就移动，直到符合条件
+
+移动一个区间，去遍历数组。
+
+
+
+## 堆排序算法
+
+寻找无序数组中，第k大的值
+
+
+
+
+
+
+
+大根堆，大的往上，小的往下，进行呼唤，得到最大的，然后将这个最大的放到最后面。重复。类似冒泡排序。一次得到一个最大的。
+
+![img](https://img2018.cnblogs.com/blog/1250927/201910/1250927-20191007030336562-1007398686.gif)
 
 
 
@@ -5773,7 +5699,7 @@ arr.sort()
 
 
 
-对象的创建
+## 对象的创建
 
 ```js
 let obj = {};
@@ -6047,11 +5973,21 @@ tree.push(new node("1","23"))
 
 ```
 
+
+
+## babel转换流程
+
+es6生成ast抽象语法树，再转换成es5
+
+
+
 ## 虚拟DOM是什么？
 
 因为操作真实dom的开销是很大的，所以就有了这个虚拟dom。
 
 真实dom是树形结构，虚拟dom是对象结构。
+
+vue把模板抽象成ast，再生成render函数，生成虚拟dom。
 
 我们先根据真实DOM生成一颗`virtual DOM`，当`virtual DOM`某个节点的数据改变后会生成一个新的`Vnode`，然后`Vnode`和`oldVnode`作对比，发现有不一样的地方就直接修改在真实的DOM上，然后使`oldVnode`的值为`Vnode`。
 
@@ -6120,24 +6056,6 @@ console.log(Book.name);  // 《vue权威指南》
 
 发布者的消息发送者不会将消息直接发送给订阅者，这意味着发布者和订阅者不知道彼此的存在。在发布者和订阅者之间存在第三个组件，称为消息代理或调度中心或中间件，它维持着发布者和订阅者之间的联系，过滤所有发布者传入的消息并相应地分发它们给订阅者。
 
-## canvas
-
-创建一个canvas标签，指定宽高，和ID。
-
-getElementById获取元素，getcontext（“2d”）获取画布
-
-moveTo（x,y）移动画笔的位置
-
-lineTo（x,y）画一条直线
-
-stroke（）把线画出来
-
-fillText(text,x,y)写文本
-
-createLinearGradient()
-
-drawImage(img,x,y)放一张图片
-
 
 
 ## 数字精度问题
@@ -6180,6 +6098,14 @@ fn.__proto__ === Function.prototype
 函数的prototype属性是定义时自动添加的。默认为{}
 对象的__proto__属性是创建对象时自动添加的，默认值为其构造函数的prototype
 Object.prototype.__proto__ === null
+
+函数的proto原型对象都是，Function类。
+
+对象的proto就是该对象的类。
+
+函数还有prototype，是该函数原型对象（类）。
+
+类也是一个对象。
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2019022822050917.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NzIyMDk3,size_16,color_FFFFFF,t_70)
 
@@ -7702,7 +7628,7 @@ var quickSort = function(arr) {
 
 # Flutter开发
 
-# flutter
+## flutter
 
 
 
@@ -8189,17 +8115,15 @@ window.addEventListener('resize', debounce(fun,1000))
 
 
 
-5、手写ajax
+## 3、前端有哪几种部署发布方式
 
-1、vue双向绑定的原理
+1、nginx，tomcat、iis服务器部署
 
-2、讲讲快速排序
+2、docker容器部署
 
-3、前端有哪几种部署发布方式
+3、cdn部署
 
-4、set 、map的底层原理
 
-5、为什么不转正
 
 6、typeof和instanceof的区别
 
@@ -8340,7 +8264,7 @@ NaN会变成null
 
 ## 1、学习前端的方式
 
-菜鸟教程、技术博客、官方文档
+菜鸟教程、技术博客、官方文档，书籍，搜索引擎，同行交流
 
 
 
@@ -8884,6 +8808,27 @@ var target = flat(source);
 
 ```
 
+## 最大和连续子序列
+
+```js
+function maxSubArr(arr) {
+    let pre = 0; let max = arr[0]
+    for(let item of arr) {
+        pre = Math.max(item, pre+item)
+        max = Math.max(max, pre)
+    }
+    return max;
+}
+```
+
+
+
+
+
+## 脱离文档流后，重排的开销比较小
+
+
+
 ## 反扁平化
 
 ```js
@@ -9203,7 +9148,7 @@ let pre = 0, maxAns = nums[0];
 
 ```
 
-## 最小K个数
+## 最小K个数（快排改造）
 
 ```js
 //快排思想，快排改造优化
@@ -9227,6 +9172,7 @@ var quickSort = function(arr, l, r){
     swap(arr, i, j);
   }
   <!-- 这轮交换完后，arr[i]的左边都是比它小的，右边都是比它大的 -->
+  // 把第一个标志，和中间位置交换
   swap(arr, l, i);
 
 <!-- 二分然后排序 -->
@@ -9668,7 +9614,7 @@ a发送数据给b后，由于网络堵塞等原因，没有得到确认，a就�
 
 利用序列号可以清楚的过滤掉重发的信息。
 
-重发的时间间隔会指数递增，累计一定次数就会关闭连接。
+重发的时间间隔会**指数递增**，累计一定次数就会关闭连接。
 
 ### 3、滑动窗口机制
 
@@ -10514,3 +10460,97 @@ ctx.scale(dpr, dpr);
 判断子弹位置和陨石位置，碰撞后子弹消失，陨石生命减一。如果陨石生命为0 ，石头爆炸，返回true。
 
 X + WIDTH/2中心点，是否在碰撞的宽度内。飞机和陨石双重判断逻辑，飞机中心在陨石上，或者陨石中心在飞机上，都爆炸
+
+
+
+
+
+# webpack
+
+entry里面配置入口文件
+
+output里面配置出口文件和路径
+
+rules里面的test用正则去匹配相关文件，然后use属性配置相关的loader，按顺序调用。
+
+loader的主要作用是将css、图片、sass等其他文件，解析成js文件
+
+file-loader和Url-loader可以接收任何文件，比如字体文件
+
+plugins配置插件，数组里面放插件对象，会自动执行插件的apply方法。
+
+编写插件：一个class，构造函数（参数），apply方法（会自动调用该方法），module.exports = xxx。
+
+detool属性配置source-map，可以追踪错误代码
+
+loader是处理文件的，插件相当于一些自动化脚本
+
+tree shaking: 自动删除未引用的代码。
+
+vue-cli内部只能通过vue.config.js配置，configWebpack属性。和chainWebpack链式维护。
+
+
+
+## webpack打包
+
+webpack是一个前端资源加载/打包工具。
+
+Webpack 本身只能处理 JavaScript 模块，如果要处理其他类型的文件，就需要使用 loader 进行转换。
+
+webpack 命令执行后，会默认载入当前目录的 webpack.config.js 文件。
+
+```javascript
+module.exports = {
+    entry: "./runoob1.js",//输入要打包的文件
+    output: {
+        path: __dirname,
+        filename: "bundle.js"   //打包后输出的静态文件
+    },
+    module: {
+        loaders: [
+            { test: /\.css$/, loader: "style-loader!css-loader" }
+        ]
+    }
+};
+```
+
+
+
+
+
+## 新技术
+
+框架： svelte，
+
+微前端：阿里qiankun
+
+低代码：腾讯微搭，阿里宜搭
+
+js基础设施的未来：rust
+
+新的构建工具：vite
+
+
+
+
+
+6、低代码将持续成为热点话题
+距我们在2020-技术趋势中谈及“低代码"”又过去了一年，从2020年19亿到2021年28.5亿的市场规模，无疑表明该领域依日火热，依旧在快速发展中。如果说2020年让我们收获了对低代码领域持续升温的预期，那么2021年则让我们看到了更多关于低代码领域未来发展的趋势。
+一方面，我们看到腾讯微搭、阿里宜搭等企业级低代码平台在行业内开始发力，公司内也有无极等专注管理台搭建的平台逐步成熟。大量平台型产品仍在差异化高速发展，仍是主流的发展思路。在IMWeb团队内，从19年开始的运营低码平台Vision，到20年的管理台低码框架Hulk，我们一直在通过垂直类低码平台加速业务研发。2021年，我们进一步在服务端场景进行了尝试，打磨出了专注接口搭建的HulkData平台。
+HulkData通过Web可视化组件搭建流水线，基于数据库或已有JAPI，配合少量代码生成全新的API接口。HulkData借鉴BPMN2.0协议使用图形来表达业务流程，支持多业务，多数据资源，低代码、插件机制、流程编排、请求和响应参数修改。Serverless日渐成熟，Serverless 的无运维特性对HulkData而言是一个非常良好的契机，在HulkData 上创建的接口会以SCF的方式部署到腾讯云，不需要再关注服务器运维。使用HulkData 服务端接口编排可快速实现业务逻辑，敏捷接付业务应用，比传统开发模式交付速度提升80%。目前内部三大业务接入使用共400+接口在正常运行。
+另一方面，值得思考的是，在高速发展的差异化、场景化的平台产品之间，是否存在某些共性?
+毕竟不管针对什么场景，从零建设一个低码平台的成本绝不低，此
+类的资源浪费在大厂里尤为突出。
+20年底IMWeb团队内启动的Gems低代码引擎项目，其实就是对这个问题的探索。低代码引擎的核心目标，是提供一套基础标准、设施，帮助上层平台更有效地建设。而其思路的关键，在于引擎模型及能力的完备性、以及针对不同场景下的可扩展性。Gems作为低代码引擎，在21年里不断完善自身的基础能力与设计，提供了全面板插件化、核心编辑对象AP|等能力。除了平稳支撑团队内的运营与管理台低码平台，也逐步迈出到团队之外，帮助到公司内多个团队在自身业务场景低码平台的高效建设。有关Gems的更多内容可以关注我们团队在QCon的相关分享。
+
+同时，我们也看到在今年底的GMTC大会上，阿里已经对外宣传了集团的低代码引擎，从分享内容看已经支撑了60多个低代码平台的建设;而腾讯内部的低代码Oteam也在21年开始组织起来，主要的目标也是底层核心的共建。从整个行业看，低代码引擎已经开始崭露头角，且可预见到趋势还将上升。只是这个细分赛道更多可能只是大厂参与，因为其需要大量的场景支撑验证，而这是小厂或独立开发者不具备的
+同时，我们也看到在今年底的gmtc大会上，阿里已经对外宣传了集团的低代码引擎，从分享内容看已经支撑了60多个低代码平台的建设；而腾讯内部的低代码也在21年开始组织起来，主要的目标也是底层核心的共建.从整个行业看，低代码引擎已经开始崭露头角，且可预见到趋势还将上升.只是这个细分赛道更多可能只是大厂参与，因为其需要大量的场景支撑验证，而这是小厂或独立开发者不具备的
+
+
+
+## css modules
+
+通过构建工具改变css的类名，或者选择器名字来实现作用域，scoped也是。解决全局命名冲突，样式冲突，模块化。
+
+通过webpack的css-loader来实现。
+
